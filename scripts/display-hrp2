@@ -1,0 +1,2 @@
+#!/bin/sh
+display-robot package://hrp2_14_description/urdf/hrp2.urdf

@@ -1,0 +1,2 @@
+#!/bin/sh
+display-robot package://pr2_mechanism_model/pr2.urdf
