@@ -14,11 +14,6 @@
 # along with roboptim_core.  If not, see <http://www.gnu.org/licenses/>.
 
 ADD_LIBRARY(jrl_dynamics_urdf SHARED ${HEADERS} parser.cc)
-PKG_CONFIG_USE_DEPENDENCY(jrl_dynamics_urdf jrl-mal)
-PKG_CONFIG_USE_DEPENDENCY(jrl_dynamics_urdf jrl-dynamics)
-PKG_CONFIG_USE_DEPENDENCY(jrl_dynamics_urdf urdfdom)
-PKG_CONFIG_USE_DEPENDENCY(jrl_dynamics_urdf resource_retriever)
-PKG_CONFIG_USE_DEPENDENCY(jrl_dynamics_urdf roscpp)
-TARGET_LINK_LIBRARIES(jrl_dynamics_urdf ${Boost_LIBRARIES})
+TARGET_LINK_LIBRARIES(jrl_dynamics_urdf ${Boost_LIBRARIES} ${catkin_LIBRARIES})
 
 INSTALL(TARGETS jrl_dynamics_urdf DESTINATION ${CATKIN_PACKAGE_LIB_DESTINATION})

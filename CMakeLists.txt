@@ -12,21 +12,23 @@
 # GNU General Lesser Public License for more details.
 # You should have received a copy of the GNU Lesser General Public License
 # along with roboptim-core.  If not, see <http://www.gnu.org/licenses/>.
-CMAKE_MINIMUM_REQUIRED(VERSION 2.6)
+CMAKE_MINIMUM_REQUIRED(VERSION 2.8.3)
 
 project(jrl_dynamics_urdf)
-find_package(catkin REQUIRED COMPONENTS roscpp urdf)
+find_package(catkin REQUIRED COMPONENTS sot_cmake resource_retriever roscpp urdf jrl-mal jrl-dynamics)
 
 catkin_package(
 LIBRARIES jrl_dynamics_urdf
 INCLUDE_DIRS include
 )
 
+include_directories(${catkin_INCLUDE_DIRS})
 
-INCLUDE(cmake/base.cmake)
-INCLUDE(cmake/boost.cmake)
-INCLUDE(cmake/lapack.cmake)
-INCLUDE(cmake/eigen.cmake)
+
+INCLUDE(${SOT_CMAKE_DIR}/base.cmake)
+INCLUDE(${SOT_CMAKE_DIR}/boost.cmake)
+INCLUDE(${SOT_CMAKE_DIR}/lapack.cmake)
+INCLUDE(${SOT_CMAKE_DIR}/eigen.cmake)
 
 SET(PROJECT_NAME jrl_dynamics_urdf)
 SET(PROJECT_DESCRIPTION "JRL dynamics URDF")
@@ -47,8 +49,7 @@ SETUP_PROJECT()
 
 # Search for dependencies.
 SEARCH_FOR_BOOST()
-ADD_REQUIRED_DEPENDENCY("jrl-mal")
-ADD_REQUIRED_DEPENDENCY("jrl-dynamics")
+
 ADD_REQUIRED_DEPENDENCY("urdfdom")
 ADD_REQUIRED_DEPENDENCY("urdfdom_headers")
 ADD_REQUIRED_DEPENDENCY("roscpp")
