@@ -188,7 +188,8 @@ namespace jrl
 
 
       Parser::Parser ()
-          : model_ (),
+          : JointsNamesByRank_ (),
+	    model_ (),
             robot_ (),
             rootJoint_ (),
             jointsMap_ (),
@@ -203,8 +204,8 @@ namespace jrl
             rightAnkleJointName_ (),
             leftFootJointName_ (),
             rightFootJointName_ (),
-            gazeJointName_ (),
-            JointsNamesByRank_ ()
+            gazeJointName_ ()
+            
       {
         initREPNames();
         std::cout << "parser initialized" << std::endl;
