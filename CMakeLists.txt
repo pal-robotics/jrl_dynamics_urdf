@@ -18,12 +18,14 @@ project(jrl_dynamics_urdf)
 find_package(catkin REQUIRED COMPONENTS sot_cmake resource_retriever roscpp urdf jrl-mal jrl-dynamics)
 
 catkin_package(
-LIBRARIES jrl_dynamics_urdf
-INCLUDE_DIRS include
+  LIBRARIES jrl_dynamics_urdf
+  INCLUDE_DIRS include
+  CATKIN_DEPENDS jrl-mal jrl-dynamics
 )
 
-include_directories(${catkin_INCLUDE_DIRS})
+message("*******************************************8${catkin_INCLUDE_DIRS}")
 
+include_directories(include ${catkin_INCLUDE_DIRS})
 
 INCLUDE(${SOT_CMAKE_DIR}/base.cmake)
 INCLUDE(${SOT_CMAKE_DIR}/boost.cmake)
@@ -38,13 +40,12 @@ SET(CXX_DISABLE_WERROR True)
 
 set(${PROJECT_NAME}_HEADERS
     include/jrl/dynamics/urdf/doc.hh
-  include/jrl/dynamics/urdf/parser.hh
-
+    include/jrl/dynamics/urdf/parser.hh
   )
 
 SETUP_PROJECT()
 
-# Add main library to pkg-config file.
+#Add main library to pkg-config file.
 #PKG_CONFIG_APPEND_LIBS(jrl_dynamics_urdf)
 
 # Search for dependencies.
